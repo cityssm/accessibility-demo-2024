@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <title>Accessibility Demo 2024</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="./node_modules/bulma/css/bulma.min.css"
+    />
+  </head>
+  <body class="has-background-white-ter">
+    <main class="container is-max-desktop py-3 px-3">
+      <h1 class="title is-2 has-text-centered">Accessibility Demo 2024</h1>
+
+      <div class="message is-info">
+        <div class="message-body">
+          <strong
+            >Note that the files below were crafted to include accessibility
+            errors.</strong
+          ><br />
+          Can you identify the problems with each file?
+        </div>
+      </div>
+
+      <section class="card">
+        <div class="card-content">
+          <a class="box" href="./files/demo1-poster.pdf">
+            <div class="columns">
+              <div class="column is-narrow">
+                <figure class="image is-48x48">
+                  <img
+                    src="./files/demo1-poster-thumb.png"
+                    alt="Thumbnail of PDF"
+                  />
+                </figure>
+              </div>
+              <div class="column">
+                <h2 class="title is-3">Demo 1</h2>
+                <p class="subtitle is-5">March Break Activity Poster</p>
+              </div>
+            </div>
+          </a>
+          <div class="columns">
+            <div class="column">
+              <div class="content">
+                <p class="title is-6">Prerequisites</p>
+                <ul>
+                  <li>Adobe Acrobat Reader</li>
+                </ul>
+              </div>
+              <div class="content">
+                <p class="title is-6">Instructions</p>
+                <ul>
+                  <li>Open the PDF document in Adobe Acrobat Reader.</li>
+                  <li>
+                    Use Acrobat's Read Out Loud feature to read the document.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="column">
+              <div class="content">
+                <a class="title is-6" href="#">Problems (Click to Reveal)</a>
+                <div class="is-hidden">
+                  <ul>
+                    <li>
+                      <strong>No alternative text for the image.</strong><br />
+                      <small
+                        >Alternative text is used to describe the content of an
+                        image. When no alternative text is available, nothing is
+                        communicated to screen reader users.</small
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="title is-3">More Resources</h2>
+
+        <ul>
+          <li>
+            <a
+              href="https://www.a11yproject.com/posts/wcag2-documents/"
+              target="_blank"
+            >
+              Introduction to WCAG 2.x - The A11y Project
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        function toggleContent(clickEvent) {
+          clickEvent.preventDefault();
+          clickEvent.currentTarget.nextElementSibling?.classList?.toggle(
+            "is-hidden"
+          );
+        }
+
+        const toggleTitles = document.querySelectorAll("a.title");
+
+        for (const toggleTitle of toggleTitles) {
+          toggleTitle.addEventListener("click", toggleContent);
+        }
+      })();
+    </script>
+  </body>
+</html>
